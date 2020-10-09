@@ -1,0 +1,37 @@
+<div class="page-container">
+  <header>
+    <div class="nav">
+      <div class="nav-part">
+        <mat-icon class="burger-menu" (click)="sidenav.toggle()">{{ isMenuOpen ? 'menu_open' : 'menu' }}</mat-icon>
+        <a routerLink="/" class="app-title">
+          UnicornLviv
+        </a>
+      </div>
+      <div class="nav-part">
+        <mat-icon class="account">account_circle</mat-icon>
+        <mat-icon class="cart">shopping_cart</mat-icon>
+      </div>
+    </div>
+    <div class="welcoming">
+      <h5>Привіт, Діана!</h5>
+      <h5 class="ml-4">{{today}} - гарний день для шопінгу!</h5>
+    </div>
+  </header>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav autoFocus="false" mode="over" [(opened)]="isMenuOpen" class="sidenav"
+      (click)="onSidenavClick()">
+      <a mat-button routerLink="/page1">Page 1</a>
+      <a mat-button routerLink="/page2">Page 2</a>
+      <a mat-button routerLink="/page3">Page 3</a>
+      <a mat-button routerLink="/page4">Page 4</a>
+      <a mat-button routerLink="/page5">Page 5</a>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <main>
+        <router-outlet></router-outlet>
+        <app-footer></app-footer>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>
